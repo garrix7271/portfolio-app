@@ -50,7 +50,7 @@ a { color: inherit; }
   border-bottom: 1px solid var(--line);
 }
 .nav-in { display: flex; justify-content: space-between; align-items: center; height: 64px; }
-.logo { font: 800 20px var(--head); text-decoration: none; letter-spacing: -0.02em; }
+.logo { display: flex; align-items: center; gap: 12px; font: 800 20px var(--head); text-decoration: none; letter-spacing: -0.02em; }
 .nav-links { display: flex; align-items: center; gap: 20px; font-size: 15px; font-weight: 500; }
 .nav-links a { color: var(--muted); text-decoration: none; }
 .nav-links a:hover { color: var(--ink); }
@@ -59,8 +59,10 @@ a { color: inherit; }
   border: 1.5px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer;
 }
 .icon-btn:hover { border-color: var(--ink); }
-@media (max-width: 560px) { .nav-links a { display: none; } }
-
+@media (max-width: 560px) {
+  .nav-in { height: auto; flex-wrap: wrap; padding: 10px 0; row-gap: 6px; }
+  .nav-links { width: 100%; justify-content: space-between; gap: 12px; }
+}
 /* Hero */
 .hero { position: relative; padding: 72px 0 96px; overflow: hidden; }
 .hero > * { position: relative; z-index: 1; animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
@@ -96,7 +98,7 @@ h1 span { color: var(--accent); transition: color 0.3s; }
   content: ""; position: absolute; inset: 70px; border-radius: 50%;
   border: 2px solid var(--accent); opacity: 0.6;
 }
-@media (max-width: 720px) { .orb { width: 260px; height: 260px; right: -90px; top: 10px; } .orb::after { inset: 44px; } }
+@media (max-width: 560px) { .orb { width: 260px; height: 260px; right: -90px; top: 10px; } .orb::after { inset: 44px; } }
 
 /* Buttons */
 .btns { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -175,3 +177,14 @@ h2 { font: 700 clamp(28px, 5vw, 42px)/1.1 var(--head); letter-spacing: -0.02em; 
 
 .logo { display: flex; align-items: center; gap: 12px; }
 .logo img { display: block; height: 44px; width: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent);}
+
+.wrap { max-width: 1200px; }
+.hero { overflow: visible; }
+.app { overflow-x: clip; }
+.hero > .orb { animation: none; opacity: 0.14; right: -160px; }
+.hero { text-align: center; }
+.hero h1 { margin-left: auto; margin-right: auto; max-width: 15ch; }
+.hero .lede { margin-left: auto; margin-right: auto; }
+.hero .btns { justify-content: center; }
+.hero > .orb { right: auto; left: 50%; margin-left: -210px; top: 20px; }
+@media (max-width: 720px) { .hero > .orb { margin-left: -130px; } }
